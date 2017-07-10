@@ -1,0 +1,16 @@
+{
+  "name": "timelapse",
+  "version": "0.0.0",
+  "main": "app.js",
+  "author": "mraxus (mraxus@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.5.0",
+    "exif": "^0.6.0",
+    "find-remove": "^1.0.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "jimp": "^0.2.28",
+    "lwip": "^0.0.9",
+    "videoshow": "^0.1.11"
+  }
+}
