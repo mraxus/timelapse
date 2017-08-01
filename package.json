@@ -11,6 +11,7 @@
     "fluent-ffmpeg": "^2.1.2",
     "jimp": "^0.2.28",
     "lwip": "^0.0.9",
+    "progress": "^2.0.0",
     "videoshow": "^0.1.11"
   }
 }

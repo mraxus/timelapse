@@ -7,7 +7,12 @@ brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r -
 
 ### Todo:
 
- [ ] Rename files after image resizing to be in continuous sequence
+ [x] Rename files after image resizing to be in continuous sequence
  [ ] Add progress bar(s) instead of flooding text updates
+    [ ] Progress to gather file info
+    [x] Progress to resizing
+    [x] Progress to renaming
+    [x] Progress to ffmpeg
+ [ ] Terminal output format "nice and clean"
  [ ] Add Clock overlay
  [ ] Add Map overlay support for images with GPS info
