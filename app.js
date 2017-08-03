@@ -22,9 +22,12 @@ async function main() {
   const tmpPath = await prepareTmpPath(RND_NAME)
   const filePaths = await readdir(IMG_PATH)
   const imagePaths = filePaths.filter(isJpeg).map(name => IMG_PATH + name)
-  const dataArray = await mapLimit(imagePaths, 512, Image.getInfo)
+  let bar = getProgressbar('1. Reading images ', imagePaths.length, 'number')
+  bar.update(0)
 
-  let bar = getProgressbar('1. Resizing images', dataArray.length, 'number', ' | :input -> :output :info')
+  const dataArray = await mapLimit(imagePaths, 64, Image.getInfo, () => bar.tick())
+
+  bar = getProgressbar('2. Resizing images', dataArray.length, 'number', ' | :input -> :output :info')
   bar.update(0, { input: '', output: '', info: '' })
 
   // TODO: Fix integrity problems with some files
@@ -47,17 +50,17 @@ async function main() {
   }
 
   if (errors) {
-    bar = getProgressbar('2. Renaming images', getCountOfFilesToRename(results), 'number', ' | :input -> :output')
+    bar = getProgressbar('3. Renaming images', getCountOfFilesToRename(results), 'number', ' | :input -> :output')
     bar.update(0, { input: '', output: '' })
 
     // console.log('There were errors while processing some images. Renaming files for uninterrupted sequence...')
     await renameResizedImagesInSequence(results, (input, output) => bar.tick(1, { input, output }))
   } else {
-    console.log('  2. Renaming images: No images needed to be renamed')
+    console.log('  3. Renaming images: No images needed to be renamed')
   }
 
   try {
-    bar = getProgressbar('3. Compiling video', 100, 'percent')
+    bar = getProgressbar('4. Compiling video', 100, 'percent')
     bar.update(0, { input: '', output: '' })
 
     result = await Video.saveFluent(pattern, OUTPUT_PATH, (percent) => bar.update(percent / 100.0))
