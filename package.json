@@ -1,6 +1,6 @@
 {
-  "name": "timelapse",
-  "version": "0.0.0",
+  "name": "timelapse-cli",
+  "version": "0.1.0",
   "main": "app.js",
   "author": "mraxus (mraxus@gmail.com)",
   "license": "MIT",
@@ -13,5 +13,24 @@
     "lwip": "^0.0.9",
     "progress": "^2.0.0",
     "videoshow": "^0.1.11"
-  }
+  },
+  "description": "### What is this",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mraxus/timelapse.git"
+  },
+  "keywords": [
+    "timelapse",
+    "ffmpeg",
+    "images",
+    "video"
+  ],
+  "bugs": {
+    "url": "https://github.com/mraxus/timelapse/issues"
+  },
+  "homepage": "https://github.com/mraxus/timelapse#readme"
 }
